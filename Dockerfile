@@ -32,7 +32,7 @@ RUN git clone https://github.com/leoyin/notes.git notes
 ADD ./app.js /server/
 ADD ./deploy.sh /server/
 # Deploy.sh 执行权限  
-RUN chmod +x /server/deploy.sh
+# RUN chmod +x /server/deploy.sh
 
 
 
