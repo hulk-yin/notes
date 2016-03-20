@@ -55,7 +55,7 @@ ADD ./deploy.sh /server/
 
 ``` 
 
-- Step2 创建部署脚本 deploy.sh
+- Step3 创建部署脚本 deploy.sh
 
 ```
 		#! /bin/bash
@@ -68,6 +68,14 @@ ADD ./deploy.sh /server/
    
 ```
 
+- Step4 阿里云docker hub dockerfie 构建
+
+- Step5 运行容器
+
+```
+	docker run -v /home/html/notes:/data --name gitbookdeploy -p 7777:7777 -d registry.aliyuncs.com/ykh/notes node app.js
+```
 - Step4 配置github webhook 进行自动化部署
 
 - Step5 配置Nginx 转发
+
