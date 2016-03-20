@@ -1,6 +1,5 @@
-# docker 部署 nodejs + gitbook
+# docker 搭建  nodejs + gitbook 自动部署环境
 
-## 容器配置
 - Step1 创建gitbook 仓库
 	
 	1. 创建仓库
