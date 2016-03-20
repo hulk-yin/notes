@@ -3,8 +3,11 @@ var createHandler = require('github-webhook-handler')
 // var handler = createHandler({ path: '/webhook', secret: 'myhashsecret' })
 var handler = createHandler({ path: '/webhook', secret: 'kehaonotes' })
 
+var exec = require("child_process").exec;
+var path = require("path");
+var deployfile = path.join(process.cwd(),"./deploy.sh");
+
 http.createServer(function (req, res) {
- console.log(req.header)
   handler(req, res, function (err) {
     res.statusCode = 404
     res.end('no such location')
@@ -19,6 +22,10 @@ handler.on('push', function (event) {
   console.log('Received a push event for %s to %s',
     event.payload.repository.name,
     event.payload.ref)
+  	exec(deployfile, function callback(error, stdout, stderr) {
+		console.log(stdout);
+	});
+
 })
 
 handler.on('issues', function (event) {
