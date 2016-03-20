@@ -1,0 +1,23 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "gitbook-cli": "^2.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "gitbook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leoyin/notes.git"
+  },
+  "author": "yinkehao@me.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leoyin/notes/issues"
+  },
+  "homepage": "https://github.com/leoyin/notes"
+}
