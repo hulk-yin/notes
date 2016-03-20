@@ -3,8 +3,8 @@
 ## 容器配置
 - Step1 创建gitbook 仓库
 	
-	- github 创建 仓库 leoyin/notes
-
+	1. 创建仓库
+		Dockerfile、webhook部署脚本一起放入文档仓库
 
 - Step2 创建Dockerfile
 
@@ -76,7 +76,30 @@ ADD ./deploy.sh /server/
 ```
 	docker run -v /home/html/notes:/data --name gitbookdeploy -p 7777:7777 -d registry.aliyuncs.com/ykh/notes node app.js
 ```
-- Step4 配置github webhook 进行自动化部署
+
 
 - Step5 配置Nginx 转发
+
+```
+pstream ykh.notes.http{
+     server 127.0.0.1:7777;
+}
+
+server {
+        listen  80;
+        server_name notes.yinkehao.com;
+        #access_log logs/notes.yinkehao.com.access.log main;
+
+        location / {
+                root /home/html/notes/_book;
+        }
+        location /webhook {
+                proxy_pass http://ykh.notes.http;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header Host $host;
+        }
+}
+
+```
+
 
