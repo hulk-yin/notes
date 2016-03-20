@@ -64,6 +64,7 @@ ADD ./deploy.sh /server/
 		git pull;
 		cd ../;
 		gitbook build ./notes ;
+		rm -rf /data/_book; 
 		mv ./notes/_book /data;
    
 ```
